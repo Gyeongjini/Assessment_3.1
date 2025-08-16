@@ -1,0 +1,122 @@
+/* =========================
+   Required custom properties
+========================= */
+:root {
+  --base-font-color: rgb(131,148,150);
+  --secondary-font-color: rgb(88,110,117);
+  --emphasised-font: rgb(147,161,161);
+
+  --c-background-color: rgb(0, 43, 54);
+  --c-background-highlights: rgb(7, 54, 66);
+
+  --c-yellow:  rgb(181,137,  0);
+  --c-orange:  rgb(203, 75, 22);
+  --c-red:     rgb(220, 50, 47);
+  --c-magenta: rgb(211, 54,130);
+  --c-violet:  rgb(108,113,196);
+  --c-blue:    rgb(38,139,210);
+  --c-cyan:    rgb(42,161,152);
+  --c-green:   rgb(133,153,  0);
+}
+
+/* =========================
+   Base layout & typography
+========================= */
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  background: var(--c-background-color);
+  color: var(--base-font-color);
+  font-family: system-ui, -apple-system, "Open Sans", Arial, sans-serif;
+}
+.wrapper {
+  max-width: 800px;                 /* Required: max width 800px */
+  margin: 0 auto;
+  padding: 0 16px;
+}
+h1, h2, h3, h4, h5, h6 { color: var(--secondary-font-color); }
+
+/* =========================
+   Header & Footer
+========================= */
+header, footer {
+  background: var(--c-background-highlights); /* Required */
+  color: var(--base-font-color);              /* Required */
+  padding: 16px;
+}
+header { text-align: center; font-size: 150%; }     /* Required: centered + 150% */
+header h1 { color: var(--c-yellow); margin: 8px 0; }/* Required: yellow heading */
+footer p { margin: 0; text-align: center; }
+
+/* Search form */
+.search-bar { 
+  display: flex;              
+  gap: 10px;                  
+  margin-top: 20px; 
+}
+
+.search-form input {
+  padding: 6px;
+  font-size: 14px;
+}
+
+.search-form button {
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: var(--c-white, #fff);
+  border-radius: 5px;       
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* =========================
+   Navigation (full width, centered, no bullets)
+========================= */
+nav ul { list-style: none; margin: 10; padding: 10; }
+.topnav {
+  display: flex; justify-content: center; gap: 100px; width: 100%;
+}
+.topnav a {
+  text-decoration: none; color: var(--emphasised-font);
+}
+.topnav a:hover { text-decoration: underline; color: var(--c-blue); }
+
+/* =========================
+   Main layout: article | aside
+========================= */
+main.two-col {
+  display: grid; grid-template-columns: 1fr 280px; gap: 24px;
+  padding: 24px 0;
+}
+@media (max-width: 860px) {
+  main.two-col { grid-template-columns: 1fr; }
+}
+
+/* =========================
+   Article rules
+========================= */
+/* Required: article links magenta; hover orange */
+article a { color: var(--c-magenta); }
+article a:hover { color: var(--c-orange); }
+
+/* Required: borders around each subsection INCLUDING the heading */
+.subsection {
+  border: 3px solid var(--c-cyan);          /* Required: 3px solid cyan */
+  border-radius: 6px;
+  padding: 16px;
+  background: rgba(255,255,255,0.02);
+  margin-top: 16px;
+}
+
+/* Required: top padding for ALL headings within article */
+article h1, article h2, article h3, article h4, article h5, article h6 {
+  padding-top: 50px;
+}
+
+/* =========================
+   Aside colors (required)
+========================= */
+aside { color: var(--c-green); }            /* all text green */
+aside a { color: var(--c-red); }            /* links red */
+aside a:hover { color: var(--c-blue); }     /* hover blue */
