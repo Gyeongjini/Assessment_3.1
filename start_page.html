@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark'>">
   <head>
     <meta charset="utf-8" />
     <title>Gyeongjin's Page</title>
@@ -12,14 +12,14 @@
 
   <body>
     <!-- Header -->
-<header>
-  <h1>Header</h1>
-</header>
+    <header class="wrapper">
+      <h1>Header</h1>
+    </header>
 
     <!-- Nav -->
     <nav class="wrapper">
       <ul class="topnav">
-        <li><a href="#">Home</a></li>
+        <li><a href="start_page.html">Home</a></li>
         <li><a href="#">Our team</a></li>
         <li><a href="#">Projects</a></li>
         <li><a href="gallery.html">Gallery</a></li>
@@ -27,15 +27,17 @@
       </ul>
     </nav>
 
-    <!-- Search bar -->
-    <div class="wrapper">
-      <form class="search-form">
-        <input type="text" name="Search" placeholder="Search Query" />
+    <!-- Tools row (search + theme) -->
+    <div class="wrapper tools-row">
+      <form class="search-form" onsubmit="return false;">
+        <input type="text" placeholder="Search..." />
         <button type="submit">Search</button>
       </form>
+
+      <button id="toggleThemeBtn" aria-pressed="false" type="button">Theme</button>
     </div>
 
-    <!-- Main -->
+    <!-- Main (two columns: article | aside) -->
     <main class="wrapper two-col">
       <!-- Article -->
       <article>
@@ -45,7 +47,7 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam lectus.
           Maecenas congue ligula as quam viverra nec consectetur ant hendrerit. Donec et mollis dolor.
           Praesent et diam eget libero egestas mattis sit amet vitae augue.
-          Here is an <a href="#">example article link</a>.
+          Here is an <a href="https://developer.mozilla.org/en-US/">example article link</a>.
         </p>
 
         <!-- Subsection 1 -->
@@ -80,5 +82,8 @@
     <footer class="wrapper">
       <p>©Copyright 2050 by Gyeongjin Lee. All rights reversed.</p>
     </footer>
+
+    <!-- Theme toggle logic -->
+    <script src="script.js"></script>
   </body>
 </html>

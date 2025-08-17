@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bird Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="wrapper">
+      <h1>Bird Gallery</h1>
+    </header>
+
+    <nav class="wrapper">
+      <ul class="topnav">
+        <li><a href="start_page.html">Home</a></li>
+        <li><a href="#">Our team</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Tools row -->
+    <div class="wrapper tools-row">
+      <div></div>
+      <button id="toggleThemeBtn" aria-pressed="false" type="button">Toggle Theme</button>
+    </div>
+
+    <main class="wrapper">
+      <!-- One IMG and one P only -->
+      <img id="bird" alt="Bird image" src="http://www.outgrabe.net/bird00.jpg" class="bird-img" />
+      <p id="caption">Pardalote by fir0002 (CC-by-NC)</p>
+
+      <!-- Five buttons -->
+      <div class="button-row">
+        <button type="button" data-bird="pardalote">Pardalote</button>
+        <button type="button" data-bird="swamphen">Purple Swamp Hen</button>
+        <button type="button" data-bird="stilt">White-headed Stilt</button>
+        <button type="button" data-bird="thornbill">Inland Thornbill</button>
+        <button type="button" data-bird="robin">Rose Robin</button>
+      </div>
+    </main>
+
+    <footer class="wrapper">
+      <p>©Copyright 2050 by Gyeongjin Lee. All rights reversed.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      // bird swapping (simple, student-friendly)
+      document.addEventListener('DOMContentLoaded', () => {
+        const birdImg = document.getElementById('bird');
+        const cap = document.getElementById('caption');
+
+        const birds = {
+          pardalote: {
+            src: 'http://www.outgrabe.net/bird00.jpg',
+            text: 'Pardalote by fir0002 (CC-by-NC)'
+          },
+          swamphen: {
+            src: 'http://www.outgrabe.net/bird01.jpg',
+            text: 'Purple swamp hen by Toby Hudson (CC-by-SA)'
+          },
+          stilt: {
+            src: 'http://www.outgrabe.net/bird02.jpg',
+            text: 'White-headed Stilt by JJ Harrison (CC-by-SA)'
+          },
+          thornbill: {
+            src: 'http://www.outgrabe.net/bird03.jpg',
+            text: 'Inland Thornbill by Peter Jacobs (CC-by-SA)'
+          },
+          robin: {
+            src: 'http://www.outgrabe.net/bird04.jpg',
+            text: 'Rose Robin by JJ Harrison (CC-by-SA)'
+          }
+        };
+
+        document.querySelectorAll('.button-row button').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const key = btn.dataset.bird;
+            const info = birds[key];
+            if (!info) return;
+            birdImg.src = info.src;
+            cap.textContent = info.text;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
